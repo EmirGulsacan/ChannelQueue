@@ -63,3 +63,6 @@ Services/Consumer.cs: Class responsible for reading and processing messages from
 Controllers/MessageController.cs: Controller defining the API endpoint.
 Development and Contribution
 To contribute, please open a pull request or create an issue.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
