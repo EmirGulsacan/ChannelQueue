@@ -13,7 +13,7 @@ namespace ChannelQueue.Services
         {
             _channelReader = channelReader;
             _logger = logger;
-            _processedMessages = new string[capacity]; // Kapasiteyi ayarlarız
+            _processedMessages = new string[capacity]; // Set capacity
             _index = 0;
         }
 
@@ -23,7 +23,7 @@ namespace ChannelQueue.Services
             {
                 try
                 {
-                    // Mesaj işleme işlemleri burada yapılır
+                    // Message processing is done here
                     _logger.LogInformation($"Consumed: {message}");
                     await ProcessMessageAsync(message);
                 }
@@ -36,7 +36,7 @@ namespace ChannelQueue.Services
 
         private async Task ProcessMessageAsync(string message)
         {
-            // Mesaj işleme logic'i burada yer alır
+            // Message processing logic is located here
             if (_index < _processedMessages.Length)
             {
                 _processedMessages[_index++] = message;
@@ -46,8 +46,8 @@ namespace ChannelQueue.Services
                 _logger.LogWarning("Message array capacity reached. Message discarded.");
             }
 
-            // 1 saniye bekleme süresi ekle. Bu kısım console'dan kuyrukta işlenen veriyi gözlemlemek için koyulmuştur.
-            // Kaldırırsanız veriyi çok hızlı işleyecektir.
+            // Add 1 second cooldown. This section is included to observe the data processed in the queue from the console.
+            // If you remove it, it will process data very quickly.
             await Task.Delay(1000);
         }
     }
