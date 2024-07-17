@@ -16,7 +16,7 @@ The project consists of the following components:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/thalesss/ChannelQueue.git
+git clone https://github.com/EmirGulsacan/ChannelQueue.git
 cd ChannelQueue
 ```
 ```bash
